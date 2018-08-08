@@ -1,5 +1,4 @@
 connection.properties
-ConnectionUtil.java
 
 *.java.hsp
 *.sonarj
