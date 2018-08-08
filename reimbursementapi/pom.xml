@@ -40,7 +40,7 @@
 	</dependency>
 	<dependency>
     	<groupId>com.oracle</groupId>
-    	<artifactId>ojdbc7</artifactId>
+    	<artifactId>ojdbc</artifactId>
     	<version>12.1.0</version>
     </dependency>
 	<dependency>
