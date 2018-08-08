@@ -28,7 +28,7 @@ public class ConnectionUtil {
                 try {
                         // load information from properties file
                         Properties props = new Properties();
-                        in = new FileInputStream("\\home\\ec2-user\\connection.properties");
+                        in = new FileInputStream("/connection.properties");
                         props.load(in);
 
                         // get the connection object
