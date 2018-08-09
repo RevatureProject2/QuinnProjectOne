@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo '(>^_^)>'
+                dir('./frontEnd') {
+                    sh 'yarn'
+                    sh 'yarn run build'
+                }
             }
         }
         stage('Test') {
