@@ -19,7 +19,11 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                echo '<(^_^<)'
+                dir('./reimbursementapi') {
+                    sh 'echo $CATALINA_HOME'
+                    sh 'cp target/*.war $CATALINA_HOME/webapps/'
+                    sh 'cp -r target/reimbursementapi $CATALINA_HOME/webapps/'
+                }
             }
         }
     }
