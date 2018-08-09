@@ -6,9 +6,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('./frontEnd') {
-                    sh 'yarn'
-                    sh 'yarn run build'
+                dir('./reimbursementapi') {
+                    sh 'mvn clean'
+                    sh 'mvn install'
                 }
             }
         }
