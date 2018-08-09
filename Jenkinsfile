@@ -1,7 +1,4 @@
 pipeline {
-    options {
-        timeout(time: 1, unit: 'HOURS') 
-    }
     agent any
     stages {
         stage('Build') {
@@ -10,11 +7,14 @@ pipeline {
                     sh 'mvn clean'
                     sh 'mvn install'
                 }
+                dir('./frontEnd'){
+                    sh 'yarn install'
+                }
             }
         }
         stage('Test') {
             steps {
-                echo '(*_*)'
+                echo '>^_^)> $$$ <(^_^<'
             }
         }
         stage('Deliver') {
