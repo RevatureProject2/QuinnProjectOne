@@ -53,7 +53,7 @@ public class RequestHelper {
 				employeeDelegate.put(req, res);
 			break;
 		case "test":
-			res.getWriter().append("YE!");
+			res.getWriter().append("Welcome to the API");
 			break;
 		default: 
 			res.setStatus(304);
