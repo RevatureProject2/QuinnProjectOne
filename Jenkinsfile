@@ -32,7 +32,7 @@ pipeline {
                 }
                 dir('./frontEnd') {
                     timeout(time: 10, unit: 'MINUTES', activity: false) {
-                        sh 'pm2 start ecosystem.config.js --env=production'
+                        sh 'sudo pm2 start ecosystem.config.js --env=production'
                     }
                 }
             }
