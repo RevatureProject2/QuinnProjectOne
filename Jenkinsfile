@@ -33,6 +33,7 @@ pipeline {
                 dir('./frontEnd') {
                     timeout(time: 10, unit: 'MINUTES', activity: false) {
                         sh 'mkdir -p /www/reimbursementapi_frontend/build && cp -r ./build /www/reimbursementapi_frontend/build'
+                        sh 'cp -r ./node_modules /www/reimbursementapi_frontend/node_modules'
                         sh 'cp -r ./server /www/reimbursementapi_frontend'
                         sh 'cp ecosystem.config.js /www/reimbursementapi_frontend'
                     }
