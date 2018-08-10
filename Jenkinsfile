@@ -4,27 +4,18 @@ pipeline {
     }
     agent any
     stages {
-        stage('Build') {
-            parallel {
-                stage('API') {
-                    steps {
-                        dir('./reimbursementapi') {
-                            sh 'mvn clean'
-                            sh 'mvn install'
-                        }
+        stage('Build') {    
+            steps {
+                dir('./reimbursementapi') {
+                    sh 'mvn clean'
+                    sh 'mvn install'
+                }
+                dir('./frontEnd') {
+                    timeout(time: 10, unit: 'MINUTES', activity: false) {
+                        sh 'yarn'
+                        sh 'yarn run build'
                     }
                 }
-                stage('Frontend') {
-                    steps {
-                        dir('./frontEnd') {
-                            timeout(time: 10, unit: 'MINUTES', activity: false) {
-                                sh 'yarn'
-                                sh 'yarn run build'
-                                sh 'cp -r ./build /www'
-                            }
-                        }
-                    }
-                } 
             }
         }
         stage('Test') {
@@ -41,5 +32,5 @@ pipeline {
                 }
             }
         }
-    }
+    }     
 }
