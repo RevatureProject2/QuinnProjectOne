@@ -9,6 +9,7 @@ pipeline {
                 }
                 dir('./frontEnd') {
                     sh 'yarn'
+                    sh 'yarn run build'
                 }
             }
         }
