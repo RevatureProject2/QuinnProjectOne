@@ -30,6 +30,11 @@ pipeline {
                     sh 'cp target/*.war $CATALINA_HOME/webapps/'
                     sh 'cp -r target/reimbursementapi $CATALINA_HOME/webapps/'
                 }
+                dir('./frontEnd') {
+                    timeout(time: 10, unit: 'MINUTES', activity: false) {
+                        sh 'cp -r ./build /www'
+                    }
+                }
             }
         }
     }     
