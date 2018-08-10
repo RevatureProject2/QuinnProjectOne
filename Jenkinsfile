@@ -2,10 +2,22 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {
-                dir('./reimbursementapi') {
-                    sh 'mvn clean'
-                    sh 'mvn install'
+            parallel {
+                stage('Actually working') {
+                    steps {
+                        dir('./reimbursementapi') {
+                            sh 'mvn clean'
+                            sh 'mvn install'
+                        }
+                    }
+                }
+                stage('MEMEING HARD'){
+                    steps {
+                        sh 'echo "(^_^) (^_^) (^_^)"'
+                        sh 'echo "(^_^) (^_^) (^_^)"'
+                        sh 'echo "(^_^) (^_^) (^_^)"'
+                        sh 'echo "(^_^) (^_^) (^_^)"'
+                    }
                 }
             }
         }
