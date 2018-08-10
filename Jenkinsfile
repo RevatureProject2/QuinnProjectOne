@@ -32,7 +32,8 @@ pipeline {
                 }
                 dir('./frontEnd') {
                     timeout(time: 10, unit: 'MINUTES', activity: false) {
-                        sh 'cp -r ./build /www'
+                        sh 'cp -r ./build /www/reimbursementapi_frontend'
+                        sh 'cp -r ./server /www/reimbursementapi_frontend'
                     }
                 }
             }
