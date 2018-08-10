@@ -10,12 +10,12 @@ pipeline {
                     sh 'mvn clean'
                     sh 'mvn install'
                 }
-                dir('./frontEnd') {
-                    timeout(time: 10, unit: 'MINUTES', activity: false) {
-                        sh 'yarn'
-                        sh 'yarn run build'
-                    }
-                }
+                // dir('./frontEnd') {
+                //     timeout(time: 10, unit: 'MINUTES', activity: false) {
+                //         sh 'yarn'
+                //         sh 'yarn run build'
+                //     }
+                // }
             }
         }
         stage('Test') {
@@ -30,11 +30,11 @@ pipeline {
                     sh 'cp target/*.war $CATALINA_HOME/webapps/'
                     sh 'cp -r target/reimbursementapi $CATALINA_HOME/webapps/'
                 }
-                dir('./frontEnd') {
-                    timeout(time: 10, unit: 'MINUTES', activity: false) {
-                        sh 'sudo pm2 start ecosystem.config.js --env=production'
-                    }
-                }
+                // dir('./frontEnd') {
+                //     timeout(time: 10, unit: 'MINUTES', activity: false) {
+                //         sh 'sudo pm2 start ecosystem.config.js --env=production'
+                //     }
+                // }
             }
         }
     }     
