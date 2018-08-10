@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo '(>^_^)> $$$ <(^_^<)'
+                echo '(>^_^)> (^_^) <(^_^<) '
             }
         }
         stage('Deliver') {
