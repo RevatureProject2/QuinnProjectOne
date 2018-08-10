@@ -1,7 +1,4 @@
 pipeline {
-    options {
-      timeout(time: 5, unit: 'MINUTES') 
-    }
     agent any
     stages {
         stage('Build') {
@@ -11,9 +8,11 @@ pipeline {
                     sh 'mvn install'
                 }
                 dir('./frontEnd') {
-                    sh 'yarn'
-                    sh 'yarn run build'
-                    sh 'cp -r ./build /www'
+                    timeout(time: 10, unit: 'MINUTES') {
+                        sh 'yarn'
+                        sh 'yarn run build'
+                        sh 'cp -r ./build /www'
+                    }
                 }
             }
         }
