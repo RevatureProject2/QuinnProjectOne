@@ -8,7 +8,7 @@ pipeline {
                     sh 'mvn install'
                 }
                 dir('./frontEnd') {
-                    timeout(time: 10, unit: 'MINUTES') {
+                    timeout(time: 10, unit: 'MINUTES', activity: false) {
                         sh 'yarn'
                         sh 'yarn run build'
                         sh 'cp -r ./build /www'
