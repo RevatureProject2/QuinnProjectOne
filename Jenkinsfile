@@ -7,6 +7,9 @@ pipeline {
                     sh 'mvn clean'
                     sh 'mvn install'
                 }
+                dir('./frontEnd') {
+                    sh 'yarn'
+                }
             }
         }
         stage('Test') {
