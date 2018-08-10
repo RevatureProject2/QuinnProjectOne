@@ -52,6 +52,9 @@ public class RequestHelper {
 			if ("PUT".equals(req.getMethod()))
 				employeeDelegate.put(req, res);
 			break;
+		case "test":
+			res.getWriter().append("YE!");
+			break;
 		default: 
 			res.setStatus(304);
 			break;

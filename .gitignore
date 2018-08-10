@@ -1,4 +1,5 @@
 connection.properties
+.vscode/
 
 *.java.hsp
 *.sonarj
